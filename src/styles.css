@@ -1,0 +1,23 @@
+body {
+    background-color: #F1DDBF;
+}
+
+.colors {
+    color: #F1DDBF;
+    color: #525E75;
+    color: #78938A;
+    color: #92BA92;
+}
+
+img {
+    height: 300px;
+    width: 250px;
+    border: 8px solid brown;
+    border-radius: 100px;
+    margin: 2px;
+}
+
+img:hover {
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
