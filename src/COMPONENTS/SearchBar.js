@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Searchbar extends Component {
 
-
     state = {
         term: "",
         pword: "",
@@ -11,9 +10,9 @@ class Searchbar extends Component {
     }
 
     onInputChange = (event) => {
+        
         this.setState({ term: event.target.value })
     }
-
     onPwordChange = (event) => {
         this.setState({ pword: event.target.value })
 
@@ -29,6 +28,7 @@ class Searchbar extends Component {
     }
 
     onFormSubmit = (event) => {
+        
         event.preventDefault();  
         this.props.onSubmit(this.state.term);
     }

@@ -3,50 +3,67 @@ import Axios from 'axios';
 
 class Imagecarousel extends Component {
 
-    state = {
-        term: this.props.term,
-        urlImage: null
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            term: this.props.term,
+            urlImage: null,
+            count: 0
+        }
     }
 
-    // componentDidMount() {
 
-
-    //     Axios.get("https://api.unsplash.com/photos/random/", {
-    //         params: {
-    //             query: this.state.term
-    //         },
-    //         headers: {
-    //             Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
-    //         }
-    //     }).then((response) => {
-    //         console.log(response.data.urls.regular);
-    //         this.setState({
-    //             urlImage: response.data.results
-    //         })
-    //     })
-    // }
-
+// Random Image generator 
     componentDidMount() {
-        Axios.get("https://api.unsplash.com/search/photos/", {
+        Axios.get("https://api.unsplash.com/photos/random/", {
             params: {
-                query: this.state.term
+                count: 4
             },
             headers: {
                 Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
             }
         }).then((response) => {
-            console.log(response.data.results);
             this.setState({
-                urlImage: response.data.results
+                urlImage: response.data
             })
         })
-
     }
 
+
+
+    componentDidUpdate() {
+
+        if (this.props.term != this.state.term) {
+            Axios.get("https://api.unsplash.com/search/photos/", {
+                params: {
+                    // query: this.state.term was the stupid mistake I made, repeatedly using last state values
+                    query: this.props.term
+                },
+                headers: {
+                    Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
+                }
+            }).then((response) => {
+                this.setState({
+                    urlImage: response.data.results,
+                    term: this.props.term
+                }, () => {
+                });
+            })
+        }
+    }
+
+
+
+
+
     displayMethod = () => {
+
         if (this.state.urlImage != null) {
             return (
-                <div>
+                <div className='imageCarousel'>
                     <img src={this.state.urlImage[0].urls.regular} alt="" />
                     <img src={this.state.urlImage[1].urls.regular} alt="" />
                     <img src={this.state.urlImage[2].urls.regular} alt="" />

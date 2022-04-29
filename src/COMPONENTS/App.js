@@ -9,26 +9,22 @@ class App extends Component {
     }
 
     onSearchSubmit = (term) => {
+
         this.setState({
             searchTerm: term
-            
         })
-        
     }
 
     displayMethod = () => {
-        if (this.state.searchTerm != null) {
-            
-            return <div><Imagecarousel term={this.state.searchTerm} /></div>
-        } 
+        return <div><Imagecarousel term={this.state.searchTerm} /></div>
     }
 
 
     render() {
         return (
-            <div className='ui container'>
-                <Searchbar onSubmit={this.onSearchSubmit} />
-                {this.displayMethod()}
+            <div>
+                <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} /></div>
+                <Imagecarousel term={this.state.searchTerm} />
             </div>
 
         );
