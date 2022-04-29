@@ -16,16 +16,17 @@ class Imagecarousel extends Component {
     }
 
 
-// Random Image generator 
+    // Random Image generator 
     componentDidMount() {
         Axios.get("https://api.unsplash.com/photos/random/", {
             params: {
                 count: 4
             },
             headers: {
-                Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
+                Authorization: 'Client-ID Tm86OQYLJuQDusjeMIT2hX5DrdBopfmor1WVrWuwKZI'
             }
         }).then((response) => {
+            console.log(response);
             this.setState({
                 urlImage: response.data
             })
@@ -35,7 +36,6 @@ class Imagecarousel extends Component {
 
 
     componentDidUpdate() {
-
         if (this.props.term != this.state.term) {
             Axios.get("https://api.unsplash.com/search/photos/", {
                 params: {
@@ -46,11 +46,11 @@ class Imagecarousel extends Component {
                     Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
                 }
             }).then((response) => {
+                console.log(response);
                 this.setState({
                     urlImage: response.data.results,
                     term: this.props.term
-                }, () => {
-                });
+                })
             })
         }
     }
