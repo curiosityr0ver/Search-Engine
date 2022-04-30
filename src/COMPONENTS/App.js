@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Searchbar from './SearchBar';
 import Imagecarousel from './ImageCarousel';
+import Imagegrid from './ImageGrid';
 
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
         return (
             <div>
                 <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} /></div>
-                <Imagecarousel term={this.state.searchTerm} />
+                {/* <Imagecarousel term={this.state.searchTerm} /> */}
+                <Imagegrid/>
             </div>
 
         );

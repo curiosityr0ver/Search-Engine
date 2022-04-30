@@ -3,19 +3,14 @@ import Axios from 'axios';
 
 class Imagecarousel extends Component {
 
-
-
     constructor(props) {
         super(props);
 
         this.state = {
             term: this.props.term,
             urlImage: null,
-            count: 0
         }
     }
-
-
     // Random Image generator 
     componentDidMount() {
         Axios.get("https://api.unsplash.com/photos/random/", {
@@ -26,27 +21,24 @@ class Imagecarousel extends Component {
                 Authorization: 'Client-ID Tm86OQYLJuQDusjeMIT2hX5DrdBopfmor1WVrWuwKZI'
             }
         }).then((response) => {
-            console.log(response);
             this.setState({
                 urlImage: response.data
             })
         })
     }
 
-
-
     componentDidUpdate() {
         if (this.props.term != this.state.term) {
             Axios.get("https://api.unsplash.com/search/photos/", {
                 params: {
                     // query: this.state.term was the stupid mistake I made, repeatedly using last state values
-                    query: this.props.term
+                    query: this.props.term,
+                    count: 3
                 },
                 headers: {
                     Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
                 }
             }).then((response) => {
-                console.log(response);
                 this.setState({
                     urlImage: response.data.results,
                     term: this.props.term
@@ -55,27 +47,25 @@ class Imagecarousel extends Component {
         }
     }
 
-
-
-
-
     displayMethod = () => {
 
         if (this.state.urlImage != null) {
             return (
-                <div className='imageCarousel'>
-                    <img src={this.state.urlImage[0].urls.regular} alt="" />
-                    <img src={this.state.urlImage[1].urls.regular} alt="" />
-                    <img src={this.state.urlImage[2].urls.regular} alt="" />
-                    <img src={this.state.urlImage[3].urls.regular} alt="" />
-                </div>
-            );
+                this.state.urlImage.map(
+                    image => {
+                        return (
+                            <a href={image.links.html} target="_blank"><img src={image.urls.regular} key={image.id} alt={image.description} /></a>
+                        )
+                    }
+                )
+                //For Each in react doesn't work since it doesn't return anything
+            )
         }
     }
 
     render() {
         return (
-            <div>
+            <div className='imageCarousel'>
                 {this.displayMethod()}
             </div>
         );

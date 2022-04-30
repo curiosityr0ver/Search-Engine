@@ -11,22 +11,20 @@ body {
 }
 
 img {
-    height: 360px;
-    width: 360px;
     border: 8px solid brown;
     border-radius: 100px;
-    margin: 2px;
+    max-width: 350px;
 }
 
 img:hover {
-    transform: scale(1.05);
-    transition-duration: 0.5s;
+    transform: scale(1.03);
+    transition-duration: 1s;
 }
 
 .imageCarousel {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px ;
 }
 
 .searchbar {
