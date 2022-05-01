@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import ImageCard from './ImageCard';
 
 class Imagecarousel extends Component {
 
@@ -18,7 +19,7 @@ class Imagecarousel extends Component {
                 count: 4
             },
             headers: {
-                Authorization: 'Client-ID Tm86OQYLJuQDusjeMIT2hX5DrdBopfmor1WVrWuwKZI'
+                Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
             }
         }).then((response) => {
             this.setState({
@@ -28,12 +29,11 @@ class Imagecarousel extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.term != this.state.term) {
+        if (this.props.term !== this.state.term) {
             Axios.get("https://api.unsplash.com/search/photos/", {
                 params: {
                     // query: this.state.term was the stupid mistake I made, repeatedly using last state values
                     query: this.props.term,
-                    count: 3
                 },
                 headers: {
                     Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
@@ -54,7 +54,7 @@ class Imagecarousel extends Component {
                 this.state.urlImage.map(
                     image => {
                         return (
-                            <a href={image.links.html} target="_blank"><img src={image.urls.regular} key={image.id} alt={image.description} /></a>
+                            <ImageCard image = {image} />
                         )
                     }
                 )

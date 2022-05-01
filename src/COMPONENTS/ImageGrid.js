@@ -46,7 +46,7 @@ class Imagegrid extends Component {
         return (
             this.urlsArr.map(
                 image => {
-                    return <img src={image} key={image} alt="" />
+                    return <div className="ui"><img src={image} key={image} alt="" /></div>
                 }
             )
         )

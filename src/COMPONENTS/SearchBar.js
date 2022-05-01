@@ -24,7 +24,7 @@ class Searchbar extends Component {
             this.setState({
                 pwordLabel: ""
             })
-        }
+        } 
     }
 
     onFormSubmit = (event) => {

@@ -25,8 +25,8 @@ class App extends Component {
         return (
             <div>
                 <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} /></div>
-                {/* <Imagecarousel term={this.state.searchTerm} /> */}
-                <Imagegrid/>
+                <Imagecarousel term={this.state.searchTerm} />
+                {/* <Imagegrid/> */}
             </div>
 
         );
