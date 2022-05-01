@@ -4,7 +4,6 @@ class Searchbar extends Component {
 
     state = {
         term: "",
-        pword: "",
         resultType: "image",
     }
 
@@ -27,12 +26,9 @@ class Searchbar extends Component {
             this.setState({
                 resultType: "image"
             })
-        }      
+        }
     }
 
-    // componentDidUpdate() {
-    //     console.log(this.state)
-    // }
 
     render() {
         return (
@@ -40,11 +36,11 @@ class Searchbar extends Component {
                 <form action="" className='ui form' onSubmit={this.onFormSubmit}>
                     <div className='field' style={{ display: `inline-block` }}>
                         <label htmlFor=""><h5>Search </h5></label>
-                        <input type="text" placeholder='Search...' value={this.state.term} onChange={this.onInputChange} />
+                        <input type="text" placeholder={'search ' + this.state.resultType} value={this.state.term} onChange={this.onInputChange} />
 
                     </div>
                     <div id='imageToggle' className="ui toggle checkbox" style={{ display: `inline-block` }}>
-                        <input div type="checkbox" name="public" onChange={this.onToggleChange}/>
+                        <input div type="checkbox" name="public" onChange={this.onToggleChange} />
                         <label id='imageToggleLabel' >Image</label>
                     </div>
                 </form>

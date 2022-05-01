@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Searchbar from './SearchBar';
 import Imagecarousel from './ImageCarousel';
-import Imagegrid from './ImageGrid';
+// import Imagegrid from './ImageGrid';
+import Videocarousel from './VideoCarousel';
 
 
 class App extends Component {
@@ -14,25 +15,20 @@ class App extends Component {
 
         this.setState({
             searchTerm: term,
-            resultType:toggle,
+            resultType: toggle,
         })
     }
 
     displayMethod = () => {
 
-        if (this.state.resultType == "image") {
-            return <div><Imagecarousel term={this.state.searchTerm} /></div>
-        }
-
-       
+            if (this.state.resultType == "image") {
+                return <div>
+                    <Imagecarousel term={this.state.searchTerm} />
+                </div>
+            } else {
+                return <div><Videocarousel term={this.state.searchTerm} /></div> 
+            }
     }
-    componentDidMount() {
-        console.log(this.state)
-    }
-    componentDidUpdate() {
-        console.log(this.state)
-    }
-
 
     render() {
         return (
