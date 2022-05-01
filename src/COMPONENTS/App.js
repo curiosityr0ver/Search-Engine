@@ -6,18 +6,31 @@ import Imagegrid from './ImageGrid';
 
 class App extends Component {
     state = {
-        searchTerm: null
+        searchTerm: null,
+        resultType: 'image',
     }
 
-    onSearchSubmit = (term) => {
+    onSearchSubmit = (term, toggle) => {
 
         this.setState({
-            searchTerm: term
+            searchTerm: term,
+            resultType:toggle,
         })
     }
 
     displayMethod = () => {
-        return <div><Imagecarousel term={this.state.searchTerm} /></div>
+
+        if (this.state.resultType == "image") {
+            return <div><Imagecarousel term={this.state.searchTerm} /></div>
+        }
+
+       
+    }
+    componentDidMount() {
+        console.log(this.state)
+    }
+    componentDidUpdate() {
+        console.log(this.state)
     }
 
 
@@ -25,7 +38,7 @@ class App extends Component {
         return (
             <div>
                 <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} /></div>
-                <Imagecarousel term={this.state.searchTerm} />
+                {this.displayMethod()}
                 {/* <Imagegrid/> */}
             </div>
 
