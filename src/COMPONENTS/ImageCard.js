@@ -12,7 +12,7 @@ class Imagecard extends Component {
     }
 
     componentDidMount() {
-        this.imageRef.current.addEventListener('load',this.setSpans)
+        this.imageRef.current.addEventListener('load', this.setSpans)
     }
 
     setSpans = () => {
@@ -24,7 +24,7 @@ class Imagecard extends Component {
 
     render() {
 
-        const { urls, key, height, links } = this.props.image;
+        const { urls, key, links } = this.props.image;
         // const span = Math.ceil(height / 250);
         const span = this.state.spans;
         return (

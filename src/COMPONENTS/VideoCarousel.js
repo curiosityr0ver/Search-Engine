@@ -25,7 +25,8 @@ class Videocarousel extends Component {
         }).then((response) => {
             this.setState({
                 term: this.props.term,
-                urlVideo: response.data.items
+                urlVideo: response.data.items,
+                selectedVideo: response.data.items[0]
             })
         })
     }
@@ -44,7 +45,8 @@ class Videocarousel extends Component {
 
                 this.setState({
                     term: this.props.term,
-                    urlVideo: response.data.items
+                    urlVideo: response.data.items,
+                    selectedVideo: response.data.items[0]
 
                 })
             })
