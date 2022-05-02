@@ -11,8 +11,11 @@ class Imagecard extends Component {
         spans: 0
     }
 
-    setSpans = () => {
+    componentDidMount() {
+        this.imageRef.current.addEventListener('load',this.setSpans)
+    }
 
+    setSpans = () => {
         const heightAlt = this.imageRef.current.clientHeight;
         this.setState({
             spans: Math.ceil(heightAlt / 10) + 1
