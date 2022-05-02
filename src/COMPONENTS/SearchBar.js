@@ -27,6 +27,7 @@ class Searchbar extends Component {
                 resultType: "image"
             })
         }
+       
     }
 
 

@@ -36,7 +36,7 @@ class Imagecarousel extends Component {
                     query: this.props.term,
                 },
                 headers: {
-                    Authorization: 'Client-ID gNR2-WrevQrk3OVQbx14qQ392jrIkLO8bj2PxZBx0vg'
+                    Authorization: 'Client-ID 1e3J1lEwSzKxlU7h0pxrjThhxEKvD4O4rkhuKzXvtgU'
                 }
             }).then((response) => {
                 this.setState({
@@ -54,7 +54,7 @@ class Imagecarousel extends Component {
                 this.state.urlImage.map(
                     image => {
                         return (
-                            <ImageCard image = {image} />
+                            <ImageCard image={image} key={image.urls.regular} />
                         )
                     }
                 )

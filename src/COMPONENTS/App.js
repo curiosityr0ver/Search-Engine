@@ -33,7 +33,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} /></div>
+                <div className='searchbar'><Searchbar onSubmit={this.onSearchSubmit} onToggle = {this.onTypeToggle} /></div>
                 {this.displayMethod()}
                 {/* <Imagegrid/> */}
             </div>
