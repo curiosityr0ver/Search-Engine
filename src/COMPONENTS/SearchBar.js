@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import ToggleButtons from './ToggleButtons';
 class Searchbar extends Component {
 
     state = {
         term: "",
-        resultType: "image",
+        resultType: "wiki",
     }
 
     onInputChange = (event) => {
@@ -12,22 +12,17 @@ class Searchbar extends Component {
     }
 
     onFormSubmit = (event) => {
-
+        console.log(this.state)
         event.preventDefault();
         this.props.onSubmit(this.state.term, this.state.resultType);
     }
 
-    onToggleChange = () => {
-        if (this.state.resultType == "image") {
-            this.setState({
-                resultType: "video"
-            })
-        } else {
-            this.setState({
-                resultType: "image"
-            })
-        }
-       
+    onToggleChange = (resultChild) => {
+        this.setState({
+            resultType: resultChild
+        }, () => {
+           
+        })
     }
 
 
@@ -36,16 +31,12 @@ class Searchbar extends Component {
             <div className='ui segment'>
                 <form action="" className='ui form' onSubmit={this.onFormSubmit}>
                     <div className='field' style={{ display: `inline-block` }}>
-                        <label htmlFor=""><h5>Search </h5></label>
                         <input type="text" placeholder={'search ' + this.state.resultType} value={this.state.term} onChange={this.onInputChange} />
 
                     </div>
-                    <div id='imageToggle' className="ui toggle checkbox" style={{ display: `inline-block` }}>
-                        <input div type="checkbox" name="public" onChange={this.onToggleChange} />
-                        <label id='imageToggleLabel' >Image</label>
-                    </div>
+                    <ToggleButtons onToggleChange={this.onToggleChange} />
                 </form>
-            </div>
+            </div >
         );
     }
 }

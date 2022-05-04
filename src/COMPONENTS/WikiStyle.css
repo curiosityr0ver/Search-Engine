@@ -1,0 +1,15 @@
+
+
+.articleCard {
+    background-color: white;
+    margin: 8px;
+    border-radius: 3px;
+    padding: 5px;
+    }
+
+    .thumbnail {
+display: inline-block;
+    }
+    .content {
+    display: inline-block;
+    }
