@@ -28,7 +28,7 @@ const Translate = ({ visible, setVisible }) => {
 
     return (
         <div>
-            <Dropdown options={options} selected={selected} onSetSelected={setSelected} visible={visible} setShowDropdown={setVisible} />
+            <Dropdown options={options} selected={selected} onSetSelected={setSelected} visible={visible} setVisible={setVisible} />
 
 
         </div>

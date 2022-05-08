@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './DropdownStyle.css'
 
-const Dropdown = ({ options, selected, onSetSelected, visible, setShowDropdown }) => {
+const Dropdown = ({ options, selected, onSetSelected, visible, setVisible }) => {
 
     const [active, setActive] = useState(null);
 
@@ -27,7 +27,7 @@ const Dropdown = ({ options, selected, onSetSelected, visible, setShowDropdown }
             console.log("hey")
             setActive(null)
         } else {
-            setShowDropdown("visible");
+            setVisible("visible");
             console.log("hey yo")
             setActive("active")
         }
