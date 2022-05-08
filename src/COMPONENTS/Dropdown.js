@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './DropdownStyle.css'
 
 const Dropdown = ({ options, selected, onSetSelected, visible, setShowDropdown }) => {
 
     const [active, setActive] = useState(null);
+
+    useEffect(() => {
+        visible === "visible" ? setActive("active") : setActive(null);
+    });
 
     const displayMethod = options.map((option) => {
 

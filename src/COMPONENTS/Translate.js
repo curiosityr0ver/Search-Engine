@@ -16,7 +16,7 @@ const options = [
     }
 ]
 
-const Translate = ({ visible, setShowDropdown }) => {
+const Translate = ({ visible, setVisible }) => {
 
     const [selected, setSelected] = useState(options[2]);
 
@@ -28,7 +28,7 @@ const Translate = ({ visible, setShowDropdown }) => {
 
     return (
         <div>
-            <Dropdown options={options} selected={selected} onSetSelected={setSelected} visible={visible} setShowDropdown={setShowDropdown} />
+            <Dropdown options={options} selected={selected} onSetSelected={setSelected} visible={visible} setShowDropdown={setVisible} />
 
 
         </div>

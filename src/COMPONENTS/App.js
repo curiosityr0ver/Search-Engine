@@ -49,8 +49,7 @@ const App = () => {
 
     return (
         <div style={{ height: "900px" }} onClick={onBodyClick} >
-            <button className='ui button black' onClick={() => setShowColorPicker(!showColorPicker)}>Toggle Dropdown</button>
-            {showColorPicker === true ? <Translate visible={showDropdown} setShowDropdown={setShowDropdown} /> : null}
+            <Translate visible={showDropdown} setVisible={setShowDropdown} />
         </div>
     );
 }
