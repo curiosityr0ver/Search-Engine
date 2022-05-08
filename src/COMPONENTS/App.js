@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import './AppStyle.css'
 import Accordion from './Accordion';
 import Dropdown from './Dropdown';
 import Search from './Search';
+import Translate from './Translate';
 const items = [
     {
         title: "What is React ?",
@@ -34,11 +36,21 @@ const options = [
 
 const App = () => {
 
-    const [selected, setSelected] = useState(options[0]);
+    // const [selected, setSelected] = useState(options[0]);
+    const [showDropdown, setShowDropdown] = useState("");
+    const [showColorPicker, setShowColorPicker] = useState(true);
+
+    const onBodyClick = () => {
+
+        if (showDropdown === "visible") {
+            setShowDropdown("")
+        }
+    }
 
     return (
-        <div>
-            <Dropdown options={options} selected={selected} onSetSelected={setSelected} />
+        <div style={{ height: "900px" }} onClick={onBodyClick} >
+            <button className='ui button black' onClick={() => setShowColorPicker(!showColorPicker)}>Toggle Dropdown</button>
+            {showColorPicker === true ? <Translate visible={showDropdown} setShowDropdown={setShowDropdown} /> : null}
         </div>
     );
 }
