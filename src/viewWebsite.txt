@@ -1,1 +1,3 @@
 https://navapp.vercel.app/
+
+translate won't work due to API restrictions
