@@ -11,12 +11,9 @@ const Dropdown = ({ options, selected, onSetSelected, visible, setVisible }) => 
 
     const displayMethod = options.map((option) => {
 
-        if (option != selected) {
-            console.log(option)
-            console.log(selected)
+        if (option !== selected) {
             return (
                 <div className='item' onClick={() => { onSetSelected(option) }} >{option.label}</div>
-                // <div key={option.value} className="item" onClick={() => { onSetSelected(option) }}>{option.label} </div>
             )
         }
     })
@@ -24,11 +21,9 @@ const Dropdown = ({ options, selected, onSetSelected, visible, setVisible }) => 
     const onListClick = () => {
 
         if (visible === "visible") {
-            console.log("hey")
             setActive(null)
         } else {
             setVisible("visible");
-            console.log("hey yo")
             setActive("active")
         }
     }

@@ -2,8 +2,17 @@
     width: 60%;
 }
 
+.description {
+    width: 65%;
+}
+
 #btn {
     position: absolute;
     top: 7.6%;
     left: 60.2%;
+}
+
+.convertOutput {
+    position: relative;
+    top: 25px;
 }

@@ -17,7 +17,6 @@ const Search = () => {
                         srsearch: term
                     }
                 }).then((response) => {
-                    console.log(response.data.query.search)
                     if (response.status === 200) {
                         if (response.data.query != null) {
                             setResults(response.data.query.search)
@@ -25,7 +24,7 @@ const Search = () => {
                     }
                 })
             }
-        }, 600);
+        }, 400);
 
         return () => {
             clearTimeout(timeoutId)
